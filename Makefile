@@ -9,9 +9,10 @@ BINS=ff-notext
 all: $(BINS)
 
 ff-notext: ff-notext.c
-	$(CC) $(CPPFLAGS) $(CFLAGS) $(shell pkg-config --cflags --libs tesseract-ocr) $(LDFLAGS) -o ff-notext $^
+	$(CC) $(CPPFLAGS) $(CFLAGS) $(shell pkg-config --cflags --libs tesseract) $(LDFLAGS) -o ff-notext $^
 
 install: $(BINS)
+	install -d $(DESTDIR)/$(PREFIX)/bin
 	install $(BINS) $(DESTDIR)/$(PREFIX)/bin
 
 uninstall:
